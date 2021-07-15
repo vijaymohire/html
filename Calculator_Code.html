@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-------------------------------------------------------------------------------------------------------- 
+Subject : Web Technologies - HTML calculator O/p in Child window
+Author: Vijayananda D Mohire
+SCDL Registration Number: PGDIT - 200508208
+Assignment Name: Question 16. 
+Assignment Overview: The below code provides HTML code for displaying calc output in Child window.
+--------------------------------------------------------------------------------------------------------->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Calculator</title>
+
+<script type="text/javascript">
+ var winPop;
+ 
+ <!-- Define  function to open new window with particulat size and color and send the parent data to child window -->
+ 
+      function OpenWindow(val){
+        winPop = window.open("testPop.html","winPop","height=100px width=200px,left=650,top=250,screenX=650,screenY=250");
+		var dat = val;
+		setTimeout("SendToChild('" + dat + "')",10);
+      }
+	  function SendToChild(data){
+        winPop.document.formPop.textPop.value = data;
+		winPop.focus();
+	 }
+
+</script>
+</head>
+
+<body >
+<FORM NAME="Calc">
+  <p>&nbsp;</p>
+  <TABLE BORDER=4 align="center" bordercolor="#2A3F55" bgcolor="#00DFAA" >
+<TR>
+<TD >
+<INPUT TYPE="text"   NAME="Input" Size="17" >
+<br>
+</TD>
+</TR>
+<TR>
+<TD>
+
+<!-- Define calculator button, and onclick event to open new window -->
+
+<INPUT TYPE="button" NAME="one"   VALUE="  1  " onclick="OpenWindow(document.Calc.one.value)">
+<INPUT TYPE="button" NAME="two"   VALUE="  2  " OnCLick="OpenWindow(document.Calc.two.value)">
+<INPUT TYPE="button" NAME="three" VALUE="  3  " OnClick="OpenWindow(document.Calc.three.value)">
+<INPUT TYPE="button" NAME="plus"  VALUE="  +  " OnClick="OpenWindow(document.Calc.plus.value)" >
+<br>
+<INPUT TYPE="button" NAME="four"  VALUE="  4  " OnClick="OpenWindow(document.Calc.four.value)">
+<INPUT TYPE="button" NAME="five"  VALUE="  5  " OnCLick="OpenWindow(document.Calc.five.value)">
+<INPUT TYPE="button" NAME="six"   VALUE="  6  " OnClick="OpenWindow(document.Calc.six.value)">
+<INPUT TYPE="button" NAME="minus" VALUE="  -   "OnClick="OpenWindow(document.Calc.minus.value)" >
+<br>
+<INPUT TYPE="button" NAME="seven" VALUE="  7  " OnClick="OpenWindow(document.Calc.seven.value)">
+<INPUT TYPE="button" NAME="eight" VALUE="  8  " OnCLick="OpenWindow(document.Calc.eight.value)">
+<INPUT TYPE="button" NAME="nine"  VALUE="  9  " OnClick="OpenWindow(document.Calc.nine.value)">
+<INPUT TYPE="button" NAME="multi" VALUE="  x  " OnClick="OpenWindow(document.Calc.multi.value)" >
+<br>
+<INPUT TYPE="button" NAME="clear" VALUE="  c  " OnClick="Calc.Input.value = ''">
+<INPUT TYPE="button" NAME="zero"  VALUE="  0  " OnClick="OpenWindow(document.Calc.zero.value)">
+<INPUT TYPE="button" NAME="DoIt"  VALUE="  =  " OnClick="OpenWindow(document.Calc.DoIt.value)">
+<INPUT TYPE="button" NAME="div"   VALUE="  /   "OnClick="OpenWindow(document.Calc.div.value)" >
+<br>
+</TD>
+</TR>
+</TABLE>
+</FORM>
+</body>
+</html>
+<!-- End of HTML  -->
